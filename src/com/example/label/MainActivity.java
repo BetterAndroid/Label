@@ -35,6 +35,7 @@ public class MainActivity extends ActionBarActivity {
         pingjia.add("明白易理解111");
         pingjia.add("明白易理解22");
         pingjia.add("明白易理解33");
+        pingjia.add("明白易理解44");
 //        pingjia.addAll(JsonUtils.getBeanList(message.result,"Items", Pingjia.class));
         FlowLayout layout = (FlowLayout)findViewById(R.id.layou23);
         FlowAdapter adapter = new FlowAdapter(this, pingjia);
