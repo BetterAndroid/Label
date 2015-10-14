@@ -24,15 +24,17 @@ public class MainActivity extends ActionBarActivity {
         
         pingjia = new ArrayList<String>();
         pingjia.add("welcome");
-        pingjia.add("IT¹¤³ÌÊ¦");
-        pingjia.add("ÕõÇ®ing");
+        pingjia.add("ITå·¥ç¨‹å¸ˆ");
+        pingjia.add("æŒ£é’±ing");
         pingjia.add("i think i can");
-        pingjia.add("±êÌâÀ¸textview");
-        pingjia.add("µã»÷ÊÂ¼þ");
-        pingjia.add("ÏÔÊ¾µ½ÉÏÃæ");
-        pingjia.add("Çå³þ");
-        pingjia.add("Ã÷°×Ò×Àí½â");
-        pingjia.add("Ã÷°×Ò×Àí½â111");
+        pingjia.add("æ ‡é¢˜æ textview");
+        pingjia.add("ç‚¹å‡»äº‹ä»¶");
+        pingjia.add("æ˜¾ç¤ºåˆ°ä¸Šé¢");
+        pingjia.add("æ¸…æ¥š");
+        pingjia.add("æ˜Žç™½æ˜“ç†è§£");
+        pingjia.add("æ˜Žç™½æ˜“ç†è§£111");
+        pingjia.add("æ˜Žç™½æ˜“ç†è§£22");
+        pingjia.add("æ˜Žç™½æ˜“ç†è§£33");
 //        pingjia.addAll(JsonUtils.getBeanList(message.result,"Items", Pingjia.class));
         FlowLayout layout = (FlowLayout)findViewById(R.id.layou23);
         FlowAdapter adapter = new FlowAdapter(this, pingjia);
@@ -52,7 +54,7 @@ public class MainActivity extends ActionBarActivity {
 				} else {
 					if(checkSize >= 5) {
 						Toast.makeText(getApplicationContext(), checkList.toString(), Toast.LENGTH_SHORT).show();
-//						Toast.makeText(getApplicationContext(), "×î¶àÑ¡5¸ö", Toast.LENGTH_SHORT).show();
+//						Toast.makeText(getApplicationContext(), "æœ€å¤šé€‰5ä¸ª", Toast.LENGTH_SHORT).show();
 						return;
 					}
 					((Button)v).setSelected(true);
