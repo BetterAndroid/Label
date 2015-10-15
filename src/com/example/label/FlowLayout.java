@@ -34,12 +34,12 @@ public class FlowLayout extends ViewGroup {
 		return new MarginLayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
 	}
 	/**
-	 * ¸ºÔğÉèÖÃ×Ó¿Ø¼şµÄ²âÁ¿Ä£Ê½ºÍ´óĞ¡ ¸ù¾İËùÓĞ×Ó¿Ø¼şÉèÖÃ×Ô¼ºµÄ¿íºÍ¸ß
+	 * è´Ÿè´£è®¾ç½®å­æ§ä»¶çš„æµ‹é‡æ¨¡å¼å’Œå¤§å° æ ¹æ®æ‰€æœ‰å­æ§ä»¶è®¾ç½®è‡ªå·±çš„å®½å’Œé«˜
 	 */
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-		// »ñµÃËüµÄ¸¸ÈİÆ÷ÎªËüÉèÖÃµÄ²âÁ¿Ä£Ê½ºÍ´óĞ¡
+		// è·å¾—å®ƒçš„çˆ¶å®¹å™¨ä¸ºå®ƒè®¾ç½®çš„æµ‹é‡æ¨¡å¼å’Œå¤§å°
 		int sizeWidth = MeasureSpec.getSize(widthMeasureSpec);
 		int sizeHeight = MeasureSpec.getSize(heightMeasureSpec);
 		int modeWidth = MeasureSpec.getMode(widthMeasureSpec);
@@ -47,51 +47,51 @@ public class FlowLayout extends ViewGroup {
 
 		Log.e(TAG, sizeWidth + "," + sizeHeight);
 
-		// Èç¹ûÊÇwarp_contentÇé¿öÏÂ£¬¼ÇÂ¼¿íºÍ¸ß
+		// å¦‚æœæ˜¯warp_contentæƒ…å†µä¸‹ï¼Œè®°å½•å®½å’Œé«˜
 		int width = 0;
 		int height = 0;
 		/**
-		 * ¼ÇÂ¼Ã¿Ò»ĞĞµÄ¿í¶È£¬width²»¶ÏÈ¡×î´ó¿í¶È
+		 * è®°å½•æ¯ä¸€è¡Œçš„å®½åº¦ï¼Œwidthä¸æ–­å–æœ€å¤§å®½åº¦
 		 */
 		int lineWidth = 0;
 		/**
-		 * Ã¿Ò»ĞĞµÄ¸ß¶È£¬ÀÛ¼ÓÖÁheight
+		 * æ¯ä¸€è¡Œçš„é«˜åº¦ï¼Œç´¯åŠ è‡³height
 		 */
 		int lineHeight = 0;
 
 		int cCount = getChildCount();
 
-		// ±éÀúÃ¿¸ö×ÓÔªËØ
+		// éå†æ¯ä¸ªå­å…ƒç´ 
 		for (int i = 0; i < cCount; i++) {
 			View child = getChildAt(i);
-			// ²âÁ¿Ã¿Ò»¸öchildµÄ¿íºÍ¸ß
+			// æµ‹é‡æ¯ä¸€ä¸ªchildçš„å®½å’Œé«˜
 			measureChild(child, widthMeasureSpec, heightMeasureSpec);
-			// µÃµ½childµÄlp
+			// å¾—åˆ°childçš„lp
 			MarginLayoutParams lp = (MarginLayoutParams) child
 					.getLayoutParams();
-			// µ±Ç°×Ó¿Õ¼äÊµ¼ÊÕ¼¾İµÄ¿í¶È
+			// å½“å‰å­ç©ºé—´å®é™…å æ®çš„å®½åº¦
 			int childWidth = child.getMeasuredWidth() + lp.leftMargin
 					+ lp.rightMargin;
-			// µ±Ç°×Ó¿Õ¼äÊµ¼ÊÕ¼¾İµÄ¸ß¶È
+			// å½“å‰å­ç©ºé—´å®é™…å æ®çš„é«˜åº¦
 			int childHeight = child.getMeasuredHeight() + lp.topMargin
 					+ lp.bottomMargin;
 			/**
-			 * Èç¹û¼ÓÈëµ±Ç°child£¬Ôò³¬³ö×î´ó¿í¶È£¬ÔòµÄµ½Ä¿Ç°×î´ó¿í¶È¸øwidth£¬Àà¼Óheight È»ºó¿ªÆôĞÂĞĞ
+			 * å¦‚æœåŠ å…¥å½“å‰childï¼Œåˆ™è¶…å‡ºæœ€å¤§å®½åº¦ï¼Œåˆ™çš„åˆ°ç›®å‰æœ€å¤§å®½åº¦ç»™widthï¼Œç±»åŠ height ç„¶åå¼€å¯æ–°è¡Œ
 			 */
 			if (lineWidth + childWidth > sizeWidth) {
-				width = Math.max(lineWidth, childWidth);// È¡×î´óµÄ
-				lineWidth = childWidth; // ÖØĞÂ¿ªÆôĞÂĞĞ£¬¿ªÊ¼¼ÇÂ¼
-				// µş¼Óµ±Ç°¸ß¶È£¬
+				width = Math.max(lineWidth, childWidth);// å–æœ€å¤§çš„
+				lineWidth = childWidth; // é‡æ–°å¼€å¯æ–°è¡Œï¼Œå¼€å§‹è®°å½•
+				// å åŠ å½“å‰é«˜åº¦ï¼Œ
 				height += lineHeight;
-				// ¿ªÆô¼ÇÂ¼ÏÂÒ»ĞĞµÄ¸ß¶È
+				// å¼€å¯è®°å½•ä¸‹ä¸€è¡Œçš„é«˜åº¦
 				lineHeight = childHeight;
 			} else
-			// ·ñÔòÀÛ¼ÓÖµlineWidth,lineHeightÈ¡×î´ó¸ß¶È
+			// å¦åˆ™ç´¯åŠ å€¼lineWidth,lineHeightå–æœ€å¤§é«˜åº¦
 			{
 				lineWidth += childWidth;
 				lineHeight = Math.max(lineHeight, childHeight);
 			}
-			// Èç¹ûÊÇ×îºóÒ»¸ö£¬Ôò½«µ±Ç°¼ÇÂ¼µÄ×î´ó¿í¶ÈºÍµ±Ç°lineWidth×ö±È½Ï
+			// å¦‚æœæ˜¯æœ€åä¸€ä¸ªï¼Œåˆ™å°†å½“å‰è®°å½•çš„æœ€å¤§å®½åº¦å’Œå½“å‰lineWidthåšæ¯”è¾ƒ
 			if (i == cCount - 1) {
 				width = Math.max(width, lineWidth);
 				height += lineHeight;
@@ -123,11 +123,11 @@ public class FlowLayout extends ViewGroup {
 		
 	}
 	/**
-	 * ´æ´¢ËùÓĞµÄView£¬°´ĞĞ¼ÇÂ¼
+	 * å­˜å‚¨æ‰€æœ‰çš„Viewï¼ŒæŒ‰è¡Œè®°å½•
 	 */
 	private List<List<View>> mAllViews = new ArrayList<List<View>>();
 	/**
-	 * ¼ÇÂ¼Ã¿Ò»ĞĞµÄ×î´ó¸ß¶È
+	 * è®°å½•æ¯ä¸€è¡Œçš„æœ€å¤§é«˜åº¦
 	 */
 	private List<Integer> mLineHeight = new ArrayList<Integer>();
 
@@ -140,10 +140,10 @@ public class FlowLayout extends ViewGroup {
 
 		int lineWidth = 0;
 		int lineHeight = 0;
-		// ´æ´¢Ã¿Ò»ĞĞËùÓĞµÄchildView
+		// å­˜å‚¨æ¯ä¸€è¡Œæ‰€æœ‰çš„childView
 		List<View> lineViews = new ArrayList<View>();
 		int cCount = getChildCount();
-		// ±éÀúËùÓĞµÄº¢×Ó
+		// éå†æ‰€æœ‰çš„å­©å­
 		for (int i = 0; i < cCount; i++) {
 			View child = getChildAt(i);
 			MarginLayoutParams lp = (MarginLayoutParams) child
@@ -151,42 +151,42 @@ public class FlowLayout extends ViewGroup {
 			int childWidth = child.getMeasuredWidth();
 			int childHeight = child.getMeasuredHeight();
 
-			// Èç¹ûÒÑ¾­ĞèÒª»»ĞĞ
+			// å¦‚æœå·²ç»éœ€è¦æ¢è¡Œ
 			if (childWidth + lp.leftMargin + lp.rightMargin + lineWidth > width) {
-				// ¼ÇÂ¼ÕâÒ»ĞĞËùÓĞµÄViewÒÔ¼°×î´ó¸ß¶È
+				// è®°å½•è¿™ä¸€è¡Œæ‰€æœ‰çš„Viewä»¥åŠæœ€å¤§é«˜åº¦
 				mLineHeight.add(lineHeight);
-				// ½«µ±Ç°ĞĞµÄchildView±£´æ£¬È»ºó¿ªÆôĞÂµÄArrayList±£´æÏÂÒ»ĞĞµÄchildView
+				// å°†å½“å‰è¡Œçš„childViewä¿å­˜ï¼Œç„¶åå¼€å¯æ–°çš„ArrayListä¿å­˜ä¸‹ä¸€è¡Œçš„childView
 				mAllViews.add(lineViews);
-				lineWidth = 0;// ÖØÖÃĞĞ¿í
+				lineWidth = 0;// é‡ç½®è¡Œå®½
 				lineViews = new ArrayList<View>();
 			}
 			/**
-			 * Èç¹û²»ĞèÒª»»ĞĞ£¬ÔòÀÛ¼Ó
+			 * å¦‚æœä¸éœ€è¦æ¢è¡Œï¼Œåˆ™ç´¯åŠ 
 			 */
 			lineWidth += childWidth + lp.leftMargin + lp.rightMargin;
 			lineHeight = Math.max(lineHeight, childHeight + lp.topMargin
 					+ lp.bottomMargin);
 			lineViews.add(child);
 		}
-		// ¼ÇÂ¼×îºóÒ»ĞĞ
+		// è®°å½•æœ€åä¸€è¡Œ
 		mLineHeight.add(lineHeight);
 		mAllViews.add(lineViews);
 
 		int left = 0;
 		int top = 0;
-		// µÃµ½×ÜĞĞÊı
+		// å¾—åˆ°æ€»è¡Œæ•°
 		int lineNums = mAllViews.size();
 		for (int i = 0; i < lineNums; i++) {
-			// Ã¿Ò»ĞĞµÄËùÓĞµÄviews
+			// æ¯ä¸€è¡Œçš„æ‰€æœ‰çš„views
 			lineViews = mAllViews.get(i);
 			
-			// µ±Ç°ĞĞµÄ×î´ó¸ß¶È
+			// å½“å‰è¡Œçš„æœ€å¤§é«˜åº¦
 			lineHeight = mLineHeight.get(i);
 
-			Log.e(TAG, "µÚ" + i + "ĞĞ £º" + lineViews.size() + " , " + lineViews);
-			Log.e(TAG, "µÚ" + i + "ĞĞ£¬ £º" + lineHeight);
+			Log.e(TAG, "ç¬¬" + i + "è¡Œ ï¼š" + lineViews.size() + " , " + lineViews);
+			Log.e(TAG, "ç¬¬" + i + "è¡Œï¼Œ ï¼š" + lineHeight);
 
-			// ±éÀúµ±Ç°ĞĞËùÓĞµÄView
+			// éå†å½“å‰è¡Œæ‰€æœ‰çš„View
 			for (int j = 0; j < lineViews.size(); j++) {
 				View child = lineViews.get(j);
 				if (child.getVisibility() == View.GONE) {
@@ -195,7 +195,7 @@ public class FlowLayout extends ViewGroup {
 				MarginLayoutParams lp = (MarginLayoutParams) child
 						.getLayoutParams();
 
-				// ¼ÆËãchildViewµÄleft,top,right,bottom
+				// è®¡ç®—childViewçš„left,top,right,bottom
 				int lc = left + lp.leftMargin;
 				int tc = top + lp.topMargin;
 				int rc = lc + child.getMeasuredWidth();

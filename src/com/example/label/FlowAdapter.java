@@ -7,11 +7,13 @@ import android.graphics.Color;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.label.R;
+
 /**
- * ÀÏÊ¦±êÇ©µÄÊı¾İÊÊÅäÆ÷a
- * ËµÃ÷£º
+ * è€å¸ˆæ ‡ç­¾çš„æ•°æ®é€‚é…å™¨
+ * è¯´æ˜ï¼š
  * @author 51talk
- * @version ´´½¨Ê±¼ä£º2015-10-14  ÏÂÎç2:28:23
+ * @version åˆ›å»ºæ—¶é—´ï¼š2015-10-14  ä¸‹åˆ2:28:23
  */
 public class FlowAdapter {
 	
