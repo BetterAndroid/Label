@@ -2,28 +2,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
-    android:layout_marginTop="20dp"
     android:orientation="vertical" >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_label"
+        style="@style/FormLeftTextStyle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_launcher"
-        android:drawablePadding="10dp"
-        android:text="test"
-        android:gravity="center"
-        android:textColor="#000000"
-        android:textSize="15sp" />
+        android:gravity="center_vertical"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:singleLine="true"
+        android:text="来给老师打标签吧！(最多可选5个标签哦！)"
+        android:textColor="@color/main_wordgray_color"
+        android:textSize="@dimen/wordSize_small" />
 
     <com.example.label.FlowLayout
         android:id="@+id/layou23"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:orientation="vertical" >
-    </com.example.label.FlowLayout>
-</LinearLayout>
+        android:orientation="vertical" />
 
+</LinearLayout>

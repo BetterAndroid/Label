@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="main_yellow_color">#ff8200</color>
+    <!--  字体主色  -->
+     <color name="main_word_color">#333333</color>
+      <color name="main_wordgray_color">#828282</color>
 </resources>
