@@ -23,7 +23,6 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-<<<<<<< HEAD
         teacher_label = (FlowLayout)findViewById(R.id.layou23);
         initTeacherLabel();
     }
@@ -43,28 +42,11 @@ public class MainActivity extends ActionBarActivity {
     	data.add("明白易理解");
     	
     	//获取数据，创建item
+    	FlowLayout layout = (FlowLayout)findViewById(R.id.layou23);
     	FlowAdapter adapter = new FlowAdapter(this, data);
     	teacher_label.setAdapter(adapter);
-    	teacher_label.setOnItemClickListrener(new OnItemClickListrener() {
-=======
-        
-        pingjia = new ArrayList<String>();
-        pingjia.add("welcome");
-        pingjia.add("IT工程师");
-        pingjia.add("挣钱ing");
-        pingjia.add("i think i can");
-        pingjia.add("标题栏textview");
-        pingjia.add("点击事件");
-        pingjia.add("显示到上面");
-        pingjia.add("清楚");
-        pingjia.add("明白易理解");
-        
 //        pingjia.addAll(JsonUtils.getBeanList(message.result,"Items", Pingjia.class));
-        FlowLayout layout = (FlowLayout)findViewById(R.id.layou23);
-        FlowAdapter adapter = new FlowAdapter(this, pingjia);
-        layout.setAdapter(adapter);
         layout.setOnItemClickListrener(new OnItemClickListrener() {
->>>>>>> d8e09edaed7252a84a430e5654bcffbf4e2de16f
 			
 			@Override
 			public void onItemClick(ViewGroup parent, View v, int position) {
